@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Electron Clock Suite</title>
+  <style>
+    body{margin:0;font-family:Courier,monospace;background:#111;color:#0f0}
+    nav{display:flex}
+    nav button{flex:1;padding:8px;border:none;background:#222;color:#0f0;font-weight:700;cursor:pointer}
+    nav button.active{border-bottom:2px solid #0f0}
+    section{display:none;justify-content:center;align-items:center;height:240px;font-size:2rem}
+    section.active{display:flex}
+    #world-list{line-height:1.6;font-size:1.2rem}
+    #timer-display{font-size:3rem;margin-bottom:12px}
+    .controls button{margin:0 4px;padding:4px 10px;background:#0f0;color:#111;border:none;font-weight:700;cursor:pointer}
+  </style>
+</head>
+<body>
+  <nav>
+    <button data-tab="local" class="active">Local Clock</button>
+    <button data-tab="world">World Clock</button>
+    <button data-tab="timer">Timer</button>
+  </nav>
+
+  <section id="local" class="active">
+    <div id="local-clock"></div>
+  </section>
+
+  <section id="world">
+    <div id="world-list"></div>
+  </section>
+
+  <section id="timer">
+    <div>
+      <div id="timer-display">00:05:00</div>
+      <div class="controls">
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="reset">Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- keep this at the very end -->
+  <script type="module" src="renderer.js"></script>
+</body>
+</html>
